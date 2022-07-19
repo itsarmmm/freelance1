@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Glavnaya{% endblock %}
+
+{% block content %}
+
+<h2 style="color: #006633;
+    font-size:45px;
+    text-align:center;">Проекты</h2>
+<div style="margin-left:">
+
+   <div class="row">
+
+    <div style="margin-left:30%" class="col-5">
+        {% if projects != 0 %}
+            {% for project in projects %}
+              <div class="project">
+                  <span>{{ project.project_name }}</span>
+                  <p style="font-size:22px; float:right; color: #1D6633;"><b>{{ project.price }} ₽</b></p>
+                  <br><br>
+                  <p style="font-size:18px;">{{ project.project_desc }}</p>
+
+              </div>
+                <br> <br>
+            {% endfor %}
+        {% else %}
+        <br> <br>
+        <h3 style="text-align:center">Проектов не найдено</h3>
+        {% endif %}
+    <div class="col">
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}

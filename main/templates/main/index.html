@@ -1,0 +1,106 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Glavnaya{% endblock %}
+
+{% block content %}
+
+<div class="header">
+        <img src="{% static 'main/img/headimage.png' %}">
+</div>
+
+<div style="width:100%; display: flex;" class="content">
+    <div style="padding: 60px;width: 70%; float:left">
+        <p>Если вы не нашли требуемый товар или услугу- разместите заявку, и тогда вы получите большое количество предложений, среди которых сможете выбрать наилучшее.</p>
+        <h1>Узнайте стоимость услуги за 10 минут!</h1>
+
+        <div class="block" style="text-align:center; width:23%;border:1px solid green; padding: 20px;float:left;border-radius:18px;">
+            <h3>Добавьте заявку!</h3>
+            <span><b>Это займет у Вас не больше минуты</b></span>
+        </div>
+        <div class="block" style="text-align:center; margin-left: 10%;width:23%;border:1px solid green; padding: 20px;float:left;border-radius:18px;">
+            <h3>Получите предложения!</h3>
+            <span><b>Сравните предложения от нескольких подрядчиков</b></span>
+        </div>
+        <div class="block" style="text-align:center; margin-left: 10%;width:23%;border:1px solid green; padding: 20px;float:left;border-radius:18px;">
+            <h3>Выберите лучшее! </h3>
+            <span><b>Услуги оказываются напрямую- без посредников</b></span>
+        </div>
+
+        <button>Добавить заказ!</button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <hr style="border: 2px solid #d0e8d9; ">
+
+        <h2>Подрядчики / Мастера / Фрилансеры</h2>
+
+        <div class="freelancer">
+            <div class='container2'>
+                <img style="width:100px; height:100px" src="{% static 'main/img/freelancerimg.png' %}" class='iconDetails' />
+
+                <div class="text">
+                    <h3>Руслан</h3>
+                </div>
+            </div>
+
+            <br><br><br><br><br><br>
+            <h3>Ремонт комнаты или квартиры под ключ, евроремонт.<br>
+Ремонт квартир и домов.</h3>
+
+           <div style="display:inline">
+            <span style="font-size:22px;display:block">Косметический ремонт квартиры……………….900 руб. / м</span>
+            <span style="font-size:22px;display:block">Капитальный ремонт квартиры……………….1200 руб. /м</span>
+            <span style="font-size:22px;display:block">Ремонт в новостройке…………………….1000 руб. /м</span>
+
+           </div>
+           <button style="display:inline; margin-left:60%; margin-top:-55px;">Посмотреть анкету</button>
+
+            <br><br><br><br>
+            <div class="separator"> Фото работ </div>
+
+            <br><br>
+            <img style="width:300px;" src="{% static 'main/img/portfolio.png' %}" alt="">
+        </div>
+
+    </div>
+
+
+
+    <div class="sidebar" style="width: 30%; float:right; background-color: #e6f4e9; padding: 20px;">
+        <div>
+            <h3 style="text-align:center; color:#006633;">Выбор заказа по местоположению</h3>
+
+            <div style="border: none">
+                <label for="id1" class="inline-label">Страна</label>
+                <input placeholder="Страна" type="text" id="id1"/>
+            </div>
+                <br>
+            <div style="border: none">
+                <label for="id2" class="inline-label">Область</label>
+                <input placeholder="Область / регион" type="text" id="id2"/>
+            </div>
+                <br>
+            <div style="border: none">
+                <label for="id3" class="inline-label">Город</label>
+                <input placeholder="Город / населённый пункт" type="text" id="id3"/>
+            </div>
+
+        </div>
+
+        <h2 style="font-size: 30px; color:black; margin-left:-30px;">ИСПОЛНИТЕЛИ по категориям</h2>
+            <p><b> > Услуги подрядчиков</b></p>
+            <p><b> > Услуги фрилансеров</b></p>
+            <p><b> > Магазин товаров</b></p>
+            <p><b> > Магазин цифровых товаров</b></p>
+            <p><b> > Продажа в складчину</b></p>
+            <p><b> > Онлайн обучение</b></p>
+            <p><b> > Партнерская система</b></p>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

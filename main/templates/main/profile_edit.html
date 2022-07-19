@@ -1,0 +1,126 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Glavnaya{% endblock %}
+
+{% block content %}
+
+<h2 style="color: #006633;
+    font-size:45px;
+    text-align:center;">Настройки профиля</h2>
+
+    <br><br>
+
+    <div class="row">
+      <div class="col-sm-5 col-md-6"><div style="margin-left: 40%; padding:20px; border:1px solid #D1D1D1; border-radius:10px; background-color:#F3F3F3; width: 60%">
+          {% if changed == 1 %}
+              <span class="alert alert-success">Данные успешно сохранены</span>
+          <br>
+          <br>
+          {% endif %}
+          <div class="form-group">
+            <img src="{% static 'main/img/avatars/' %}{{user.id}}.jpg" onerror="this.src='{% static 'main/img/avatars/default.png' %}'" style="width:150px; height:150px; border-radius:10px;">
+            <form method="post" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+            <!-- <label>Изменение пароля, <b>{{user.username}}!</b></label>
+            <input type="password" name="new_password" class="form-control" aria-describedby="emailHelp" placeholder="Новый пароль">
+              <br>
+            <input type="password" name="password_confirm" class="form-control" aria-describedby="emailHelp" placeholder="Подтверждение пароля">
+              <br> -->
+              <br>
+            <input type="file" name="upload" accept="image/*">
+               <br>
+               <br>
+               <br>
+            <label>Полное имя</label>
+            <input type="text" name="fname" value="{{account.full_name}}" class="form-control">
+              <br>
+            <label>Телефон</label>
+            <input type="text" name="phone" value="{{account.phone}}" class="form-control">
+              <br>
+            <label>Страна</label>
+            <input type="text" name="country" value="{{account.country}}" class="form-control">
+              <br>
+            <label>Область</label>
+            <input type="text" name="region" value="{{account.region}}" class="form-control">
+              <br>
+            <label>Город</label>
+            <input type="text" name="city" value="{{account.city}}" class="form-control">
+              <br>
+            <label>Основной вид услуг</label>
+            <input type="text" name="type" value="{{account.service_type}}" class="form-control">
+              <br>
+            <button class="btn btn-success" type="submit">Сохранить изменения</button>
+          </div>
+      </div></div>
+      <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0"><div style="margin-left: 0%; padding:20px; height:912px; border:1px solid #D1D1D1; border-radius:10px; background-color:#F3F3F3; width: 60%">
+
+          <div class="form-group">
+
+             {% if account.vk != "None" %}
+                  <input placeholder="VK Username" type="text" name="vk" value="{{account.vk}}" class="form-control">
+                  <br>
+             {% else %}
+                  <input placeholder="VK Username" type="text" name="vk" class="form-control">
+                  <br>
+             {% endif %}
+
+             {% if account.ok != "None" %}
+                  <input placeholder="Одноклассники URL" type="text" name="ok" value="{{account.ok}}" class="form-control">
+                  <br>
+             {% else %}
+                  <input placeholder="Одноклассники URL" type="text" name="ok" class="form-control">
+                  <br>
+             {% endif %}
+
+             {% if account.fb != "None" %}
+                  <input placeholder="Facebook URL" type="text" name="fb" value="{{account.fb}}" class="form-control">
+                  <br>
+             {% else %}
+                  <input placeholder="Facebook URL" type="text" name="fb" class="form-control">
+                  <br>
+             {% endif %}
+
+
+             {% if account.insta != "None" %}
+                  <input placeholder="Instagram URL" type="text" name="insta" value="{{account.insta}}" class="form-control">
+                  <br>
+             {% else %}
+                  <input placeholder="Instagram URL" type="text" name="insta" class="form-control">
+                  <br>
+             {% endif %}
+
+             {% if account.twitter != "None" %}
+                  <input placeholder="Twitter URL" type="text" name="twitter" value="{{account.twitter}}" class="form-control">
+                  <br>
+             {% else %}
+                  <input placeholder="Twitter URL" type="text" name="twitter" class="form-control">
+                  <br>
+             {% endif %}
+
+             {% if account.viber != "None" %}
+                  <input placeholder="Viber URL"t type="text" name="viber" value="{{account.viber}}" class="form-control">
+                  <br>
+             {% else %}
+                  <input placeholder="Viber URL"t type="text" name="viber" class="form-control">
+                  <br>
+             {% endif %}
+
+             {% if account.whatsapp != "None" %}
+                  <input placeholder="Whatsapp URL"t type="text" name="whatsapp" value="{{account.whatsapp}}" class="form-control">
+                  <br>
+             {% else %}
+                  <input placeholder="Whatsapp URL"t type="text" name="whatsapp" class="form-control">
+                  <br>
+             {% endif %}
+
+            <button class="btn btn-success" type="submit">Сохранить изменения</button>
+            </form>
+          </div>
+      </div></div>
+    </div>
+
+
+
+
+
+{% endblock %}

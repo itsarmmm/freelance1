@@ -1,0 +1,104 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Glavnaya{% endblock %}
+
+{% block content %}
+
+<h2 style="color: #006633;
+    font-size:45px;
+    text-align:center;">Профиль</h2>
+<div style="margin-left: 30%; padding:20px; border:1px solid #D1D1D1; border-radius:10px; background-color:#F3F3F3; width: 40%">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+
+            <img src="{% static 'main/img/avatars/' %}{{user.id}}.jpg" style="width:150px; height:150px; border-radius:10px;">
+          <br>
+          <br>
+          <label for="fname"><b>Полное имя:</b></label>
+          <p id="fname">{{tandz.full_name}}</p>
+
+          <label for="fname"><b>Основная услуга:</b></label>
+          <p id="fname">{{tandz.service_type}}</p>
+
+          <label for="fname"><b>Телефон:</b></label>
+          <p id="fname">{{user.phone}}</p>
+
+          <label for="fname"><b>Страна:</b></label>
+          <p id="fname">{{user.country}}</p>
+
+          <label for="fname"><b>Область:</b></label>
+          <p id="fname">{{user.region}}</p>
+
+          <label for="fname"><b>Город:</b></label>
+          <p id="fname">{{user.city}}</p>
+
+          <br>
+          <label for="fname"><b>Соцсети:</b></label>
+          <div class="row">
+            {% for data in social %}
+              {% if 'http' in data.fb %}
+                <div class="column">
+                  <a target="_blank" href="{{data.fb}}"><img src="{% static 'main/img/social/fb.png' %}" alt="Snow" style="width:40px"></a>
+                </div>
+              {% endif %}
+
+              {% if 'http' in data.insta %}
+                <div class="column">
+                  <a target="_blank" href="{{data.insta}}"><img src="{% static 'main/img/social/insta.png' %}" alt="Snow" style="width:40px"></a>
+                </div>
+              {% endif %}
+
+              {% if 'http' in data.ok %}
+                <div class="column">
+                  <a target="_blank" href="{{data.ok}}"><img src="{% static 'main/img/social/ok.png' %}" alt="Snow" style="width:40px"></a>
+                </div>
+              {% endif %}
+
+              {% if 'http' in data.twitter %}
+                <div class="column">
+                  <a target="_blank" href="{{data.twitter}}"><img src="{% static 'main/img/social/twitter.png' %}" alt="Snow" style="width:40px"></a>
+                </div>
+              {% endif %}
+
+              {% if 'http' in data.viber %}
+                <div class="column">
+                  <a target="_blank" href="{{data.viber}}"><img src="{% static 'main/img/social/viber.png' %}" alt="Snow" style="width:40px"></a>
+                </div>
+              {% endif %}
+
+              {% if 'http' in data.vk %}
+                <div class="column">
+                  <a target="_blank" href="{{data.vk}}"><img src="{% static 'main/img/social/vk.png' %}" alt="Snow" style="width:40px"></a>
+                </div>
+              {% endif %}
+
+              {% if 'http' in data.whatsapp %}
+                <div class="column">
+                  <a target="_blank" href="{{data.whatsapp}}"><img src="{% static 'main/img/social/whatsapp.png' %}" alt="Snow" style="width:40px"></a>
+                </div>
+              {% endif %}
+
+            {% endfor %}
+
+
+
+          </div>
+
+
+
+        </div>
+        <div class="col-sm">
+
+        </div>
+        <div class="col-sm">
+          <div><a style="width:60px; height: 20px; border:1px solid #3BB709;background-color: #3BB709; border-radius:10px; text-decoration: none; padding:10px; color:white; font-size:20px;" href="{% url 'user_profile_edit' %}"  class="settings_profile"><i class="fa-solid fa-gear"></i>Настройки профиля</a></div>
+          <br>
+
+          <div><a style="width:60px; height: 20px; border:1px solid #3BB709;background-color: #3BB709; border-radius:10px; text-decoration: none; padding:10px; color:white; font-size:20px;" href="{% url 'add_service' %}" ><i class="fa-solid fa-gear"></i>Добавить услугу</a></div>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Glavnaya{% endblock %}
+
+{% block content %}
+
+<h2 style="color: #006633;
+    font-size:45px;
+    text-align:center;">Добавить услугу</h2>
+
+<div style="margin-left: 20%; padding:20px; border:1px solid #D1D1D1; border-radius:10px; background-color:#F3F3F3; width: 60%">
+    {% if added == 1 %}
+        <span class="alert alert-success">Услуга успешно добавлена</span>
+        <br>
+        <br>
+    {% endif %}
+    <div class="form-group">
+      <form method="post" action="">
+          {% csrf_token %}
+      <label><b>Добавление/редактирование услуги</b></label>
+
+      <br><br>
+      <label>Активна</label>
+      <input style="width:20px;" type="checkbox" name="active" class="">
+        <br><br>
+      <label>Наименование услуги</label>
+      <input required type="text" name="service_name" class="form-control">
+        <br><br>
+
+      <label>Описание услуги (виды работ)</label>
+      <textarea required type="text" name="service_desc" class="form-control"></textarea>
+        <br><br>
+
+      <label>Тариф / стоимость услуги (руб.)</label>
+      <input required type="number" name="service_price" class="form-control">
+        <br><br>
+
+      <label>Подробное описание услуги</label>
+      <textarea required type="text" name="service_full_desc" class="form-control"></textarea>
+        <br><br>
+      <button class="btn btn-success" type="submit">Подтвердить</button>
+      </form>
+    </div>
+</div>
+
+{% endblock %}

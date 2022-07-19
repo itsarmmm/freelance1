@@ -1,0 +1,68 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="{% static 'main/js/main.js' %}"></script>
+</head>
+<body>
+    <div class="topbar">
+        <input placeholder="Какой товар / услугу Вы ищете?">
+        <button>Поиск</button>
+
+    {% if not user.is_authenticated %}
+        <ul id="login">
+          <li><a style="color:white" href="{% url 'login' %}">ВХОД</a></li>
+          <li><a style="color:white" href="{% url 'signup' %}">РЕГИСТРАЦИЯ</a></li>
+        </ul>
+
+    {% else %}
+        <ul id="logined">
+          <li><a style="color:white" href="{% url 'user_profile' %}">ЗАКАЗЫ</a></li>
+          <li><a style="color:white" href="{% url 'user_profile' %}">ФИНАНСЫ</a></li>
+          <li><a style="color:white" href="#">ЧАТ</a></li>
+          <li><a style="color:white" href="{% url 'user_profile' %}">ПРОФИЛЬ</a></li>
+          <li><a style="color:white" href="{% url 'user_logout' %}">ВЫЙТИ</a></li>
+
+        </ul>
+    {% endif %}
+    </div>
+
+    <div class="navbar-tandz">
+        <ul id="menu">
+            <li><a href="{% url 'index' %}">Главная</a></li>
+            <li><a href="{% url 'projects' %}">Услуги</a></li>
+            <li><a href="#">Товары</a></li>
+            <li><a href="#">Заказы</a></li>
+            <li><a href="#">Как всё работает</a></li>
+            <li><a href="#">Правила сайта</a></li>
+            <li><a href="#">Документы</a></li>
+            <li><a href="#">Контакты</a></li>
+
+        </ul>
+    </div>
+
+    <br><br>
+
+    {% block content %}{% endblock %}
+
+    <br><br>
+
+    <div class="footer">
+        <div>
+            <span>©  Все права защищены  2020</span>
+                <span> | </span>
+            <span>Пользовательское соглашение (оферта)</span>
+                <span> | </span>
+            <span>Политика конфидициальности</span>
+        </div>
+
+    </div>
+</body>
+</html>
+
